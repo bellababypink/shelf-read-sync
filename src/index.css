@@ -2,95 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ShelfFlix Design System - Netflix-inspired dark streaming theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Core backgrounds - deep cinematic blacks */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    
+    /* Card surfaces with subtle elevation */
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+    
+    /* Popover/dropdown surfaces */
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 95%;
+    
+    /* Primary - warm amber/gold like Netflix play button */
+    --primary: 38 92% 50%;
+    --primary-foreground: 240 10% 4%;
+    
+    /* Secondary - muted cool gray */
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 0 0% 90%;
+    
+    /* Muted surfaces */
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 55%;
+    
+    /* Accent - subtle blue/purple tint */
+    --accent: 250 30% 20%;
+    --accent-foreground: 0 0% 95%;
+    
+    /* Destructive */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Borders and inputs */
+    --border: 240 5% 18%;
+    --input: 240 5% 14%;
+    --ring: 38 92% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Custom ShelfFlix tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(250 30% 12%) 0%, hsl(240 10% 4%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(240 10% 10%) 0%, hsl(240 10% 6%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(38 92% 55%) 0%, hsl(28 85% 45%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 40px -10px hsl(38 92% 50% / 0.3);
+    --shadow-hover: 0 8px 30px -8px rgba(0, 0, 0, 0.7);
+    
+    /* Sidebar */
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 38 92% 50%;
+    --sidebar-primary-foreground: 240 10% 4%;
+    --sidebar-accent: 240 5% 14%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 240 5% 16%;
+    --sidebar-ring: 38 92% 50%;
+    
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 240 10% 4%;
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Same as root - ShelfFlix is dark-first */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 240 10% 4%;
+    --secondary: 240 5% 16%;
+    --secondary-foreground: 0 0% 90%;
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 250 30% 20%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 18%;
+    --input: 240 5% 14%;
+    --ring: 38 92% 50%;
   }
 }
 
@@ -100,6 +105,184 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar for the streaming feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/40;
+  }
+}
+
+@layer components {
+  /* Hero gradient background */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Glass card effect */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  /* Golden glow effect */
+  .golden-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Card hover animation */
+  .media-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300 ease-out;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-card);
+  }
+  
+  .media-card:hover {
+    @apply scale-105 z-10;
+    box-shadow: var(--shadow-hover);
+  }
+  
+  /* Content row scroll */
+  .content-row {
+    @apply flex gap-3 overflow-x-auto pb-4 scroll-smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .content-row::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Skeleton shimmer */
+  .skeleton-shimmer {
+    @apply animate-pulse bg-gradient-to-r from-muted via-muted-foreground/10 to-muted;
+    background-size: 200% 100%;
+  }
+  
+  /* Progress bar */
+  .progress-bar {
+    @apply h-1 rounded-full bg-primary;
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.6);
+  }
+  
+  /* Type badge */
+  .type-badge {
+    @apply px-2 py-0.5 text-xs font-medium rounded-full;
+  }
+  
+  .type-badge-book {
+    @apply bg-info/20 text-info;
+  }
+  
+  .type-badge-audiobook {
+    @apply bg-success/20 text-success;
+  }
+  
+  .type-badge-pdf {
+    @apply bg-warning/20 text-warning;
+  }
+  
+  /* Navigation */
+  .nav-link {
+    @apply px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+  }
+  
+  .nav-link-active {
+    @apply text-foreground;
+  }
+  
+  /* Input focus glow */
+  .input-glow:focus {
+    @apply ring-2 ring-primary/50;
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Slide up animation */
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Scale in animation */
+  .scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Text gradient */
+  .text-gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Truncate multiline */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
